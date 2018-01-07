@@ -6,19 +6,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>   
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-<script src="http://datamaps.github.io/scripts/datamaps.world.min.js"></script>
+<script src="http://datamaps.github.io/scripts/0.4.0/datamaps.world.min.js"></script>
 
     
 <script>
 
     $(document).ready(function(){ 
-    $("#myTab li:eq(0) a").tab('show');
-});
+        $("#myTab li:eq(0) a").tab('show');
+    });
     
 </script>
     
@@ -30,70 +27,43 @@
     </ul>
 </nav>
       
-			<div id="main-wrapper">
 				<div class="container">
 							
-                    <div id="container"></div>
-                    <!-- Portfolio -->
+                    <!--<div id="map"></div>-->
                     <section>
                         <div class="tab-content">
                           <div id="sectionA" class="tab-pane fade">
-                              <H2>A</H2>
-                              <div id="container" style="position: relative; width: 800px; height: 300px;"></div>
+                              <H2>sectionA</H2>
                               <!-- the map will appear here -->
-
-                             <script>
-                                  var map = new Datamap({
-                                element: document.getElementById('container'),
-                                responsive: true,
-                                fills: {
-                                    HIGH: '#afafaf',
-                                    LOW: '#123456',
-                                    MEDIUM: 'blue',
-                                    UNKNOWN: 'rgb(0,0,0)',
-                                    defaultFill: 'green'
-                                },
-                                data: {
-                                    IRL: {
-                                        fillKey: 'LOW',
-                                        numberOfThings: 2002
-                                    },
-                                    USA: {
-                                        fillKey: 'MEDIUM',
-                                        numberOfThings: 10381
-                                    }
-                                },
-                                geographyConfig: {
-                                    popupTemplate: function(geo, data) {
-                                        return ['<div class="hoverinfo"><strong>',
-                                                'Number of things in ' + geo.properties.name,
-                                                ': ' + data.numberOfThings,
-                                                '</strong></div>'].join('');
-                                    }
-                                }
-                                });
-
-                                $('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
-                                  var target = $(e.target).attr("href") // activated tab
-
-                                    if(target == '#sectionA'){  
-                                        console.log("A"); 
-                                        map.resize();
-
-                                    }
-                                });
-                              </script>
+                                <div id="map"></div>
 
                            </div>
                           <div id="sectionB" class="tab-pane fade">
-                              <div style="position: relative;">
-                                <H2>B</H2>
-                              </div>
+                                <H2>sectionB</H2>
+                                <div id="map2"></div>
+
                           </div>
                         </div>
                     </section>
-                </div>
-    </div>
+                    
+                    
+                    
+                     <script>
+                        $('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+                            console.log(e);
+                            if(e.target.href.indexOf('sectionA') > -1) {
+                              console.log("Should Show Map!!"); 
+                            }
+                        });
+                            
+                            var map = new Datamap({
+                                element: document.getElementById('map'),
+                               height: 500, width: 500});
+                            var map = new Datamap({
+                                element: document.getElementById('map2'), fills: {defaultFill: "fa0af0"},
+                               height: 500, width: 500});
+                      </script>
 
+                </div>
 </body>
 </html>  
