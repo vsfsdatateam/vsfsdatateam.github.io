@@ -56,9 +56,30 @@
                             }
                         });
                             
-                            var map = new Datamap({
-                                element: document.getElementById('map'),
-                               height: 500, width: 500});
+			     <!-- NEW MAP-->
+			     
+			     var basic_choropleth = new Datamap({
+  element: document.getElementById("basic_choropleth"),
+  projection: 'mercator',
+  fills: {
+    defaultFill: "#ABDDA4",
+    authorHasTraveledTo: "#fa0fa0"
+  },
+  data: {
+    USA: { fillKey: "authorHasTraveledTo" },
+    JPN: { fillKey: "authorHasTraveledTo" },
+    ITA: { fillKey: "authorHasTraveledTo" },
+    CRI: { fillKey: "authorHasTraveledTo" },
+    KOR: { fillKey: "authorHasTraveledTo" },
+    DEU: { fillKey: "authorHasTraveledTo" },
+  }
+});
+			     
+			     <!-- END NEw MAP-->
+			     
+			     
+			     
+			     
                             var map = new Datamap({
                                 element: document.getElementById('map2'), fills: {defaultFill: "fa0af0"},
                                height: 500, width: 500});
