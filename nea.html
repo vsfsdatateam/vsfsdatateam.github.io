@@ -29,11 +29,11 @@
                     <li class="active">
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" style="text-align:center;">Compare By</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
-                            <li><a href="#">Population</a></li>
-                            <li><a href="#">Fertility Rate</a></li>
-                            <li><a href="#">Health Expenses (%GDP)</a></li>
-                            <li><a href="#">Military Expenses (%GDP)</a></li>
-                            <li><a href="#">Education Expenses (%GDP)</a></li>
+                            <li><a href="neaGRADIENT.html">Population</a></li>
+                            <li><a href="neaGRADIENT.html">Fertility Rate</a></li>
+                            <li><a href="neaGRADIENT.html">Health Expenses (%GDP)</a></li>
+                            <li><a href="neaGRADIENT.html">Military Expenses (%GDP)</a></li>
+                            <li><a href="neaGRADIENT.html">Education Expenses (%GDP)</a></li>
                         </ul>
                     </li>
                     <li class="active">
@@ -70,7 +70,7 @@
                 </nav>
 
                 <nav class="navbar navbar-default">
-                <h2>Near East Asia/South and Central Asia</h2>
+                <h2>Near East Asia Region</h2>
                 <p>This tool uses data from the CIA World Factbook to compare different countries in your region.</p>
 
                 <!-- MAP CODE STARTS HERE -->
@@ -79,17 +79,17 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.8/datamaps.all.js"></script>
 
-     <script>
+                <script>
        //basic map config with custom fills, mercator projection
       var map = new Datamap({
         scope: 'world',
         element: document.getElementById('container1'),
         projection: 'mercator',
         setProjection: function(element) {
-          var projection = d3.geo.equirectangular()
-            .center([47, 28.1])
+      var projection = d3.geo.equirectangular()
+            .center([29, 25.7])
             .rotate([4.4, 0])
-            .scale(280)
+            .scale(410)
             .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
           var path = d3.geo.path()
             .projection(projection);
@@ -103,19 +103,6 @@
         },
         
         data: {
-          //SCA
-          AFG: {fillKey: 'SCA' },
-          BGD: {fillKey: 'SCA' },
-          BTN: {fillKey: 'SCA' },
-          IND: {fillKey: 'SCA' },
-          KAz: {fillKey: 'SCA'},
-          KGZ: {fillKey: 'SCA' },
-          NPL: {fillKey: 'SCA' },
-          PAK: {fillKey: 'SCA' },
-          LKA: {fillKey: 'SCA' },
-          TJK: {fillKey: 'SCA' },
-          TKM: {fillKey: 'SCA' },
-          UZB: {fillKey: 'SCA' },
 
           //NEA
           DZA: {fillKey: 'NEA' },
@@ -140,8 +127,8 @@
       
 
     map.legend();
-
-     </script>
+    map.labels();
+                </script>
                 </nav>
                 </div> 
                 <!--MAP CODE ENDS HERE -->
